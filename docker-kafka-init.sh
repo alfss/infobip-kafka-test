@@ -1,7 +1,7 @@
 #!/bin/bash
 echo -n "Init Cluster: "
 { 
-	docker-compose down && docker-compose build && docker-compose up -d && docker-compose scale kafka=3 
+	docker-compose down && docker-compose build && docker-compose -p infobip up -d && docker-compose -p infobip scale kafka=3
 } >/dev/null 2>&1
 if [ $? -ne 0 ]; then
 	code=$?
